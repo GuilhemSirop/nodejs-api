@@ -1,0 +1,33 @@
+{
+  "name": "pizza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simondelaunay/Pizza.git"
+  },
+  "author": "simon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simondelaunay/Pizza/issues"
+  },
+  "homepage": "https://github.com/Simondelaunay/Pizza#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mocha": "^4.0.1",
+    "mongoose": "^4.12.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "socket.io": "^2.0.4"
+  }
+}
