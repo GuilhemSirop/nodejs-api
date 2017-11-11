@@ -9,7 +9,8 @@ const mongoose = require('mongoose'),
             price: { type: String,  required: true },
             created_at: { type: Date, default: Date.now },
             updated_at: { type: Date },
-            img: { type: String }
+            img: { type: String },
+            ingredients: [{ type: Schema.Types.ObjectId, ref: 'Ingredient' }]
       });
 
 const Pizza = mongoose.model('Pizza', pizzaSchema);

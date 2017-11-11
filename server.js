@@ -15,7 +15,8 @@ const bodyParser = require('body-parser');
 
 const Pizza = require('./Model/pizza');
 
-const pizzaController = require('./Controller/pizzaController');
+const pizzaController = require('./Controller/pizza/pizzaController');
+const ingredientController = require('./Controller/ingredient/ingredientController');
 const userController = require('./Controller/userController');
 // Pour ouvrir l'API (cross origin) IP acceptée
 const cors = require('cors');
@@ -35,6 +36,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 //var node permettant d'avoir le fichier courant
 app.use(express.static(path.join(__dirname, 'View')));
+app.use('/ingredients', ingredientController);
 app.use('/pizzas', pizzaController);
 app.use('/users', userController);
 
