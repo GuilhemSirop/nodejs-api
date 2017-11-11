@@ -51,26 +51,22 @@ router.post('/', (req, res) => {
 
 /* *** ROUTE '/' PUT => Modification d'un élement possédant un id sépcifique *** */
 router.put('/:id', (req, res) => {
+    
+    var pizza = {};
+    pizza.name = req.body.name || pizza.name;
+    pizza.description = req.body.description || pizza.description;
+    pizza.price = req.body.price || pizza.price;
+    pizza.updated_at = new Date;
+    pizza.ingredients = req.body.ingredients || pizza.ingredients;
 
-    Pizza.findById(req.params.id, (err, pizza) => {
+
+    Pizza.findOneAndUpdate({_id: req.params.id}, pizza, (err, pizza) => {
         if (err) {
             res.status(500).send(err);
         } else if (pizza === null) {
             res.status(404).send('Pas de pizza trouvé avec cet Identifiant...');
         } else {
-            
-            pizza.name = req.body.name || pizza.name;
-            pizza.description = req.body.description || pizza.description;
-            pizza.price = req.body.price || pizza.price;
-            pizza.updated_at = new Date;
-            pizza.ingredients = req.body.ingredients || pizza.ingredients;
-
-            Pizza.findOneAndUpdate({_id: req.params.id}, pizza, (err, pizza) => {
-                if (err) {
-                    res.status(500).send(err);
-                }
-                res.status(200).send(pizza);
-            });
+            res.status(200).send(pizza);
         }
     });
 });
