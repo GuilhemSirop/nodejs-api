@@ -29,6 +29,13 @@ router.delete('/:id', (req, res, next) => {
 // ************************************************************************** //
 //                                FONCTIONS                                   //
 // ************************************************************************** //
+/**
+ * Get All Pizzas none deleted
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function getPizzas(req, res, next){
     
     Pizza.find((err, pizza) => {
@@ -46,6 +53,13 @@ function getPizzas(req, res, next){
      
 }
 
+/**
+ * Get Pizza By ID
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function getPizzaById(req, res, next){
     
     Pizza.findById(req.params.id, (err, pizza) => {
@@ -65,6 +79,13 @@ function getPizzaById(req, res, next){
     
 }
 
+/**
+ * Post new Pizza
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function postPizza(req, res, next){
     
     const pizza = new Pizza(req.body);
@@ -74,6 +95,7 @@ function postPizza(req, res, next){
             res.status(500).send(err);
         } else {
             res.status(200).send(pizza);
+            // SOCKET
             global.io.emit('[Pizza][post]', pizza);
             global.io.emit('[Toast][new]', {type: 'success', title: `Nouvelle Pizza`, message: 'Une nouvelle pizza a été ajoutée !'});
         }
@@ -82,6 +104,13 @@ function postPizza(req, res, next){
     
 }
 
+/**
+ * Update Pizza
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function putPizza(req, res, next){
     
     var pizza = {};
@@ -92,7 +121,6 @@ function putPizza(req, res, next){
     pizza.updated_at = new Date;
     pizza.ingredients = req.body.ingredients || pizza.ingredients;
 
-
     Pizza.findOneAndUpdate({_id: req.params.id}, pizza, { new: true }, (err, pizza) => {
         if (err) {
             res.status(500).send(err);
@@ -100,7 +128,7 @@ function putPizza(req, res, next){
             res.status(404).send('Pas de pizza trouvé avec cet Identifiant...');
         } else {
             res.status(200).send(pizza);
-            
+            // SOCKET
             global.io.emit('[Pizza][put]', pizza);
             global.io.emit('[Toast][new]', {type: 'warning', title: `Pizza ${pizza.name} améliorée`, message: 'Découvrez les améliorations !'});
         }
@@ -108,6 +136,13 @@ function putPizza(req, res, next){
     
 }
 
+/**
+ * Delete pizza
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function deletePizza(req, res, next){
     
     Pizza.findByIdAndRemove(req.params.id, (err, pizza) => {
@@ -121,7 +156,7 @@ function deletePizza(req, res, next){
                 pizza: pizza
             };
             res.status(200).send(response);
-            
+            // SOCKET
             global.io.emit('[Pizza][delete]', pizza);
             global.io.emit('[Toast][new]', {type: 'error', title: `La pizza ${pizza.name} indisponible`, message: `Trop tard, la pizza n'est plus diposnible !`});
         }

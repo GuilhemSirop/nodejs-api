@@ -30,7 +30,13 @@ router.delete('/:id', (req, res, next) => {
 // ************************************************************************** //
 //                                FONCTIONS                                   //
 // ************************************************************************** //
-
+/**
+ * Get All ingredients none deleted
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function getIngredients(req, res, next){
     
     Ingredient.find({ 'deleted': false },(err, ingredient) => {
@@ -43,6 +49,13 @@ function getIngredients(req, res, next){
     
 }
 
+/**
+ * Get Ingredient by ID
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function getIngredientById(req, res, next){
     
      Ingredient.findById(req.params.id, (err, ingredient) => {
@@ -57,6 +70,13 @@ function getIngredientById(req, res, next){
     
 }
 
+/**
+ * Create new Ingredient
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function postIngredient(req, res, next){
     
     const ingredient = new Ingredient(req.body);
@@ -66,9 +86,15 @@ function postIngredient(req, res, next){
         }
         res.status(200).send(pizza);
     });
-    
 }
 
+/**
+ * Update Ingredient
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function putIngredient(req, res, next){
 
     let ingredient = {};
@@ -92,6 +118,13 @@ function putIngredient(req, res, next){
     
 }
 
+/**
+ * Delete Ingredient
+ *
+ * @param req
+ * @param res
+ * @param next
+ */
 function deleteIngredient(req, res, next){
     
     Ingredient.findByIdAndRemove(req.params.id, (err, ingredient) => {

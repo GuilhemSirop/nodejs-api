@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Simondelaunay/Pizza.git"
+    "url": "git+https://github.com/GuilhemSirop/nodejs-api.git"
   },
   "author": "simon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Simondelaunay/Pizza/issues"
+    "url": "https://github.com/GuilhemSirop/Issues"
   },
-  "homepage": "https://github.com/Simondelaunay/Pizza#readme",
+  "homepage": "https://github.com/GuilhemSirop",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",

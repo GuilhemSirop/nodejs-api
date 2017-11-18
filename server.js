@@ -1,5 +1,10 @@
 'use strict'
 
+/**
+ * SERVER.JS - API NODEJS
+ */
+
+
 const port = process.env.PORT || 3000;
 const config = require('config');
 
@@ -10,13 +15,10 @@ let server = http.Server(app);
 
 let io = require('socket.io')(server);
 
-const chai = require('chai');
-const mocha = require('mocha');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
-// MODELS
-const Pizza = require('./models/pizza');
+
 // CONTROLEURS
 const pizzaController = require('./controllers/pizzaController');
 const ingredientController = require('./controllers/ingredientController');
@@ -25,11 +27,11 @@ const cors = require('cors');
 
 
 let options = { 
-                server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
-                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } 
-              }; 
+    server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
+};
 
-//db connection      
+// Database Connection
 mongoose.connect(config.DBHost, options);
 let db = mongoose.connection;
 db.on('error', () => {
@@ -52,11 +54,7 @@ server.listen(port,() => {
     console.log(`Starting WebServer at ${port}`);
 });
 
-// -------------------------------------------------------------------------- //
-//                                SOCKET                                      //
-// -------------------------------------------------------------------------- //
-
-
+// Export du module io
 global.io = io;
 module.exports = app;
 
