@@ -1,11 +1,11 @@
 {
   "name": "pizza",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nouvelle application Pizzaiolo",
   "main": "server.js",
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "test": "mocha appSpec.js --exit",
+    "start": "./node_modules/mocha/bin/mocha appSpec.js"
   },
   "repository": {
     "type": "git",
@@ -20,14 +20,18 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
-    "chai": "^4.1.2",
+    "config": "^1.28.1",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
-    "mocha": "^4.0.1",
     "mongoose": "^4.12.3",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.0",
     "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
   }
 }
