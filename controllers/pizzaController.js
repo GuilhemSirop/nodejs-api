@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Pizzas' controller.
+ * @namespace PizzaController
+ */
+
 const express = require('express');
 const router  = express.Router();
 const Pizza   = require('../models/pizza');
@@ -29,12 +34,15 @@ router.delete('/:id', (req, res, next) => {
 // ************************************************************************** //
 //                                FONCTIONS                                   //
 // ************************************************************************** //
+
 /**
- * Get All Pizzas none deleted
+ * Find all pizzas
  *
- * @param req
- * @param res
- * @param next
+ * @function getPizzas
+ * @memberof PizzaController
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function getPizzas(req, res, next){
     
@@ -54,11 +62,14 @@ function getPizzas(req, res, next){
 }
 
 /**
- * Get Pizza By ID
+ * Get Pizza By Id
  *
- * @param req
- * @param res
- * @param next
+ * @function getPizzaById
+ * @memberof PizzaController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Pizza's ID to find.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function getPizzaById(req, res, next){
     
@@ -82,9 +93,16 @@ function getPizzaById(req, res, next){
 /**
  * Post new Pizza
  *
- * @param req
- * @param res
- * @param next
+ * @function postPizza
+ * @memberof PizzaController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Pizza's ID to find.
+ * @param {string} req.query.name - Pizza's name to query.
+ * @param {string} req.query.description - Pizza's description to query.
+ * @param {string} req.query.price - Pizza's price to query.
+ * @param {string} req.query.img - Pizza's image to query.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function postPizza(req, res, next){
     
@@ -104,12 +122,20 @@ function postPizza(req, res, next){
     
 }
 
+
 /**
- * Update Pizza
+ * Put Pizza
  *
- * @param req
- * @param res
- * @param next
+ * @function putPizza
+ * @memberof PizzaController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Pizza's ID to update.
+ * @param {string} req.query.name - Pizza's name to query.
+ * @param {string} req.query.description - Pizza's description to query.
+ * @param {string} req.query.price - Pizza's price to query.
+ * @param {string} req.query.img - Pizza's image to query.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function putPizza(req, res, next){
     
@@ -137,11 +163,13 @@ function putPizza(req, res, next){
 }
 
 /**
- * Delete pizza
+ * Delete Pizza
  *
- * @param req
- * @param res
- * @param next
+ * @function deletePizza
+ * @memberof PizzaController
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function deletePizza(req, res, next){
     

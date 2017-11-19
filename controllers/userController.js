@@ -30,25 +30,24 @@ router.get('/', (req, res) => {
 
 // SIGN IN EN POST PAR SECURITE
 router.post('/signin', (req, res) => {
-     User.findOne({
-        email: req.body.email
-      }, function(err, user) {
-        if (err) throw err;
-        if (!user) {
+    User.findOne({
+      email: req.body.email
+    }, function(err, user) {
+      if (err) throw err;
+      if (!user) {
+        res.status(401).json({ message: 'Authentication failed. The credentials were wrong.' });
+      } else if (user) {
+        if (!user.comparePassword(req.body.password)) {
           res.status(401).json({ message: 'Authentication failed. The credentials were wrong.' });
-        } else if (user) {
-          if (!user.comparePassword(req.body.password)) {
-            res.status(401).json({ message: 'Authentication failed. The credentials were wrong.' });
-          } else {
-            return res.json({token: jwt.sign({ email: user.email, fullName: user.fullName, _id: user._id}, 'RESTFULAPIs')});
-          }
+        } else {
+          return res.json({token: jwt.sign({ email: user.email, fullName: user.fullName, _id: user._id}, 'RESTFULAPIs')});
         }
-      });
+      }
+    });
 });
 
 // REGISTER
 router.post('/', (req, res) => {
-    console.log('coucou');
     const newUser = new User(req.body);
       newUser.hash_password = bcrypt.hashSync(req.body.password, 10);
       newUser.save(function(err, user) {

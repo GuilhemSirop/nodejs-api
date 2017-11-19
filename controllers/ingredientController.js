@@ -1,5 +1,9 @@
 'use strict';
-
+/**
+ * Ingredients' controller.
+ * @namespace IngredientController
+ */
+ 
 const express = require('express');
 const router  = express.Router();
 const Ingredient   = require('../models/ingredient');
@@ -31,11 +35,13 @@ router.delete('/:id', (req, res, next) => {
 //                                FONCTIONS                                   //
 // ************************************************************************** //
 /**
- * Get All ingredients none deleted
+ * Find all ingredients
  *
- * @param req
- * @param res
- * @param next
+ * @function getIngredients
+ * @memberof IngredientController
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function getIngredients(req, res, next){
     
@@ -48,13 +54,14 @@ function getIngredients(req, res, next){
     });
     
 }
-
 /**
- * Get Ingredient by ID
+ * Find ingredient by ID
  *
- * @param req
- * @param res
- * @param next
+ * @function getIngredientById
+ * @memberof IngredientController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Ingredient's ID to find.* @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function getIngredientById(req, res, next){
     
@@ -71,11 +78,18 @@ function getIngredientById(req, res, next){
 }
 
 /**
- * Create new Ingredient
+ * Post new Ingredient
  *
- * @param req
- * @param res
- * @param next
+ * @function postIngredient
+ * @memberof IngredientController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Ingredient's ID to find.
+ * @param {string} req.query.name - Ingredient's name to query.
+ * @param {string} req.query.description - Ingredient's description to query.
+ * @param {string} req.query.price - Ingredient's price to query.
+ * @param {string} req.query.img - Ingredient's image to query.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function postIngredient(req, res, next){
     
@@ -89,16 +103,25 @@ function postIngredient(req, res, next){
 }
 
 /**
- * Update Ingredient
+ * Put Ingredient
  *
- * @param req
- * @param res
- * @param next
+ * @function putIngredient
+ * @memberof IngredientController
+ * @param {Object} req - Request object.
+ * @param {string} req.params.id - Ingredient's ID to update.
+ * @param {string} req.query.name - Ingredient's name to query.
+ * @param {string} req.query.description - Ingredient's description to query.
+ * @param {string} req.query.weight - Ingredient's weight to query.
+ * @param {string} req.query.price - Ingredient's price to query.
+ * @param {string} req.query.img - Ingredient's image to query.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function putIngredient(req, res, next){
 
     let ingredient = {};
     ingredient.name = req.body.name || ingredient.name;
+    ingredient.weight = req.body.weight || ingredient.weight;
     ingredient.description = req.body.description || ingredient.description;
     ingredient.img = req.body.img || ingredient.img;
     ingredient.price = req.body.price || ingredient.price;
@@ -121,9 +144,11 @@ function putIngredient(req, res, next){
 /**
  * Delete Ingredient
  *
- * @param req
- * @param res
- * @param next
+ * @function deleteIngredient
+ * @memberof IngredientController
+ * @param {Object} req - Request object.
+ * @param {Object} res - Response object.
+ * @returns {Promise.<void>} Call res.status() with a status code to say what happens and res.json() to send data if there is any.
  */
 function deleteIngredient(req, res, next){
     

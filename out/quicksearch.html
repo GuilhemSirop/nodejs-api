@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body style="background: transparent;">
+    <script src="scripts/docstrap.lib.js"></script>
+    <script src="scripts/lunr.min.js"></script>
+    <script src="scripts/fulltext-search.js"></script>
+
+    <script type="text/x-docstrap-searchdb">
+    {"namespaces.list.html":{"id":"namespaces.list.html","title":"Namespaces","body":" PizzApp - Une aaplication FullJs Namespaces IngredientControllerPizzaController Namespaces Namespaces IngredientController PizzaController × Search results Close "},"index.html":{"id":"index.html","title":"Index","body":" PizzApp - Une aaplication FullJs Namespaces IngredientControllerPizzaController × Search results Close "},"IngredientController.html":{"id":"IngredientController.html","title":"Namespace: IngredientController","body":" PizzApp - Une aaplication FullJs Namespaces IngredientControllerPizzaController Namespace: IngredientController IngredientController Ingredients' controller. Methods &lt;static&gt; deleteIngredient(req, res) Delete Ingredient Parameters: Name Type Description req Object Request object. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; getIngredientById(req) Find ingredient by ID Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Ingredient's ID to find.* @param {Object} res - Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; getIngredients(req, res) Find all ingredients Parameters: Name Type Description req Object Request object. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; postIngredient(req, res) Post new Ingredient Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Ingredient's ID to find. query.name string Ingredient's name to query. query.description string Ingredient's description to query. query.price string Ingredient's price to query. query.img string Ingredient's image to query. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; putIngredient(req, res) Put Ingredient Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Ingredient's ID to update. query.name string Ingredient's name to query. query.description string Ingredient's description to query. query.weight string Ingredient's weight to query. query.price string Ingredient's price to query. query.img string Ingredient's image to query. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; × Search results Close "},"PizzaController.html":{"id":"PizzaController.html","title":"Namespace: PizzaController","body":" PizzApp - Une aaplication FullJs Namespaces IngredientControllerPizzaController Namespace: PizzaController PizzaController Pizzas' controller. Methods &lt;static&gt; deletePizza(req, res) Delete Pizza Parameters: Name Type Description req Object Request object. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; getPizzaById(req, res) Get Pizza By Id Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Pizza's ID to find. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; getPizzas(req, res) Find all pizzas Parameters: Name Type Description req Object Request object. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; postPizza(req, res) Post new Pizza Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Pizza's ID to find. query.name string Pizza's name to query. query.description string Pizza's description to query. query.price string Pizza's price to query. query.img string Pizza's image to query. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; &lt;static&gt; putPizza(req, res) Put Pizza Parameters: Name Type Description req Object Request object. Properties Name Type Description params.id string Pizza's ID to update. query.name string Pizza's name to query. query.description string Pizza's description to query. query.price string Pizza's price to query. query.img string Pizza's image to query. res Object Response object. Returns: Call res.status() with a status code to say what happens and res.json() to send data if there is any. Type Promise.&lt;void&gt; × Search results Close "}}
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            Searcher.init();
+        });
+
+        $(window).on("message", function(msg) {
+            var msgData = msg.originalEvent.data;
+
+            if (msgData.msgid != "docstrap.quicksearch.start") {
+                return;
+            }
+
+            var results = Searcher.search(msgData.searchTerms);
+
+            window.parent.postMessage({"results": results, "msgid": "docstrap.quicksearch.done"}, "*");
+        });
+    </script>
+</body>
+</html>
