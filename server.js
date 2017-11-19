@@ -1,9 +1,16 @@
 'use strict'
-
-/**
- * SERVER.JS - API NODEJS
+ /**
+ * @file server.js
+ * @desc Point d'entrée de l'application 'PizzApp'. <br />
+ * L'application PizzApp permet de gérer une carte des Pizzas. 
+ * Date de Création 20/10/2017 <br />
+ * Date de modification 20/10/2017 <br />
+ * 
+ * @version Alpha 1.0.0
+ * 
+ * @author Guilhem ROSSI  <guilhem.rossi@ynov.com>
+ * 
  */
-
 
 const port = process.env.PORT || 3000;
 const config = require('config');
@@ -22,6 +29,7 @@ const bodyParser = require('body-parser');
 // CONTROLEURS
 const pizzaController = require('./controllers/pizzaController');
 const ingredientController = require('./controllers/ingredientController');
+
 // Pour ouvrir l'API (cross origin) IP acceptée
 const cors = require('cors');
 
