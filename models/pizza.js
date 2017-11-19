@@ -1,5 +1,20 @@
 'use strict';
 
+/**
+ * Pizza's model
+ *
+ * @namespace PizzaModel
+ * @property {string} name - Pizza's name.
+ * @property {string} name.required - Property is required.
+ * @property {string} description - Pizza's description.
+ * @property {string} description.required - The property is required.
+ * @property {string} price - Pizza's price.
+ * @property {string} price.required - The property is required.
+ * @property {string} img - Pizza's image.
+ * @property {string} img.required - The property is required.
+ * @property {Ingredient[]} ingredients - Pizza's ingredients.
+ * @property {string} created_at - Pizza's creation date.
+ */
 const mongoose = require('mongoose'),
       Schema   = mongoose.Schema,
 

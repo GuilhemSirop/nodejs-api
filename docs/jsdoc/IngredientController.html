@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>PizzApp - Une aaplication FullJs Namespace: PizzaController</title>
+	<title>PizzApp - Une aaplication FullJs Namespace: IngredientController</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IngredientController.html">IngredientController</a></li><li><a href="PizzaController.html">PizzaController</a></li>
+					<li><a href="IngredientController.html">IngredientController</a></li><li><a href="IngredientModel.html">IngredientModel</a></li><li><a href="PizzaController.html">PizzaController</a></li><li><a href="PizzaModel.html">PizzaModel</a></li>
 				</ul>
 			</li>
 			
@@ -65,13 +65,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Namespace: PizzaController</h1>
+	<h1 class="page-title">Namespace: IngredientController</h1>
 <section>
 
 <header>
     
         <h2>
-        PizzaController
+        IngredientController
         </h2>
         
     
@@ -82,7 +82,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Pizzas' controller.</div>
+            <div class="description">Ingredients' controller.</div>
         
 
         
@@ -148,7 +148,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".deletePizza"><span class="type-signature">&lt;static> </span>deletePizza(req, res)</h4>
+    <h4 class="name" id=".deleteIngredient"><span class="type-signature">&lt;static> </span>deleteIngredient(req, res)</h4>
     
     
 </dt>
@@ -156,7 +156,7 @@
 
     
     <div class="description">
-        Delete Pizza
+        Delete Ingredient
     </div>
     
 
@@ -324,7 +324,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".getPizzaById"><span class="type-signature">&lt;static> </span>getPizzaById(req, res)</h4>
+    <h4 class="name" id=".getIngredientById"><span class="type-signature">&lt;static> </span>getIngredientById(req)</h4>
     
     
 </dt>
@@ -332,7 +332,7 @@
 
     
     <div class="description">
-        Get Pizza By Id
+        Find ingredient by ID
     </div>
     
 
@@ -427,7 +427,7 @@
 
             
 
-            <td class="description last">Pizza's ID to find.</td>
+            <td class="description last">Ingredient's ID to find.* @param {Object} res - Response object.</td>
         </tr>
 
     
@@ -435,30 +435,6 @@
 </table>
 
             </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>res</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Response object.</td>
         </tr>
 
     
@@ -550,7 +526,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".getPizzas"><span class="type-signature">&lt;static> </span>getPizzas(req, res)</h4>
+    <h4 class="name" id=".getIngredients"><span class="type-signature">&lt;static> </span>getIngredients(req, res)</h4>
     
     
 </dt>
@@ -558,7 +534,7 @@
 
     
     <div class="description">
-        Find all pizzas
+        Find all ingredients
     </div>
     
 
@@ -726,7 +702,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".postPizza"><span class="type-signature">&lt;static> </span>postPizza(req, res)</h4>
+    <h4 class="name" id=".postIngredient"><span class="type-signature">&lt;static> </span>postIngredient(req, res)</h4>
     
     
 </dt>
@@ -734,7 +710,7 @@
 
     
     <div class="description">
-        Post new Pizza
+        Post new Ingredient
     </div>
     
 
@@ -829,7 +805,7 @@
 
             
 
-            <td class="description last">Pizza's ID to find.</td>
+            <td class="description last">Ingredient's ID to find.</td>
         </tr>
 
     
@@ -853,7 +829,7 @@
 
             
 
-            <td class="description last">Pizza's name to query.</td>
+            <td class="description last">Ingredient's name to query.</td>
         </tr>
 
     
@@ -877,7 +853,7 @@
 
             
 
-            <td class="description last">Pizza's description to query.</td>
+            <td class="description last">Ingredient's description to query.</td>
         </tr>
 
     
@@ -901,7 +877,7 @@
 
             
 
-            <td class="description last">Pizza's price to query.</td>
+            <td class="description last">Ingredient's price to query.</td>
         </tr>
 
     
@@ -925,7 +901,7 @@
 
             
 
-            <td class="description last">Pizza's image to query.</td>
+            <td class="description last">Ingredient's image to query.</td>
         </tr>
 
     
@@ -1048,7 +1024,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".putPizza"><span class="type-signature">&lt;static> </span>putPizza(req, res)</h4>
+    <h4 class="name" id=".putIngredient"><span class="type-signature">&lt;static> </span>putIngredient(req, res)</h4>
     
     
 </dt>
@@ -1056,7 +1032,7 @@
 
     
     <div class="description">
-        Put Pizza
+        Put Ingredient
     </div>
     
 
@@ -1151,7 +1127,7 @@
 
             
 
-            <td class="description last">Pizza's ID to update.</td>
+            <td class="description last">Ingredient's ID to update.</td>
         </tr>
 
     
@@ -1175,7 +1151,7 @@
 
             
 
-            <td class="description last">Pizza's name to query.</td>
+            <td class="description last">Ingredient's name to query.</td>
         </tr>
 
     
@@ -1199,7 +1175,31 @@
 
             
 
-            <td class="description last">Pizza's description to query.</td>
+            <td class="description last">Ingredient's description to query.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query.weight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Ingredient's weight to query.</td>
         </tr>
 
     
@@ -1223,7 +1223,7 @@
 
             
 
-            <td class="description last">Pizza's price to query.</td>
+            <td class="description last">Ingredient's price to query.</td>
         </tr>
 
     
@@ -1247,7 +1247,7 @@
 
             
 
-            <td class="description last">Pizza's image to query.</td>
+            <td class="description last">Ingredient's image to query.</td>
         </tr>
 
     
@@ -1420,7 +1420,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-11-19T13:41:54+00:00
+		on 2017-11-19T19:17:50+01:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
